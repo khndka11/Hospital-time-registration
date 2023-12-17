@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+
 // Эмчийг хариуцсан контроллер
 @Controller
 public class DoctorController {
