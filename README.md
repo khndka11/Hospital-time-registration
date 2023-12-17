@@ -1,2 +1,0 @@
-# Hospital-time-registration
-software 
