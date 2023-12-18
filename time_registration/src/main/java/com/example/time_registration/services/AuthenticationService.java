@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-// Бүртгэлийн сервис загвар
+/** Бүртгэлийн сервис загвар */
 @Service
 public class AuthenticationService {
 
@@ -20,7 +20,7 @@ public class AuthenticationService {
         this.personDao = personDao;
     }
 
-    // Хэрэглэгчийг ӨС-аас хайж олдвол тухайн хэрэглэгчийн обьектыг буцаана. Эсрэг тохиолдолд нүлл буцаана.
+    /** Хэрэглэгчийг ӨС-аас хайж олдвол тухайн хэрэглэгчийн обьектыг буцаана. Эсрэг тохиолдолд нүлл буцаана. */
     public Person authenticate(UserLoginDto user) {
         Person authenticatedUser = personDao.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         LoggerFactory.getLogger(RegisterController.class).info("user: " + user.getUsername() + user.getPassword());

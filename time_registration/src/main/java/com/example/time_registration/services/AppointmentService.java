@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-// Цагийн сервис загвар
+/** Цагийн сервис загвар */
 @Service
 public class AppointmentService {
 
@@ -23,8 +23,8 @@ public class AppointmentService {
         this.appointmentRepository = appointmentDaoImpl;
     }
 
-    // Хэрэглэгчийн нэвтрэх нэр дээр бүртгэлтэй цагийн жагсаалтыг буцаана.
-    // Мөн хэрвээ ӨС-аас авсан цагуудын хугацаа нь өнгөрсөн бас үзүүлэгүй бол цуцлах төлөвт шилжүүлнэ.
+    /** Хэрэглэгчийн нэвтрэх нэр дээр бүртгэлтэй цагийн жагсаалтыг буцаана.
+    Мөн хэрвээ ӨС-аас авсан цагуудын хугацаа нь өнгөрсөн бас үзүүлэгүй бол цуцлах төлөвт шилжүүлнэ. */
     public List<Appointment> getAppointmentsByUsername(String username) {
         List<Appointment> appointments = appointmentRepository.getAppointmentsByUsername(username);
         LocalDate currentDate = LocalDate.now();
@@ -41,9 +41,9 @@ public class AppointmentService {
         return appointmentRepository.getAppointmentsByUsername(username);
     }
 
-    // Эмчид цагийн жагсаалтыг буцаана
+    /** Эмчид цагийн жагсаалтыг буцаана */
     public List<Appointment> getAppointmentsForDoctor(String username) {
-        // username ашиглахгүй байгааг анхаар!!!
+        /** username ашиглахгүй байгааг анхаар!!! */
         List<Appointment> appointments = appointmentRepository.getAppointmentsForDoctor(username);
         LocalDate currentDate = LocalDate.now();
 
@@ -59,9 +59,9 @@ public class AppointmentService {
         return appointmentRepository.getAppointmentsForDoctor(username);
     }
 
-    // Сувилагчид цагуудыг буцаана
+    /** Сувилагчид цагуудыг буцаана */
     public List<Appointment> getAppointmentsForNurse(String username) {
-        // username ашиглахгүй байгааг анхаар!!!
+        /** username ашиглахгүй байгааг анхаар!!! */
         List<Appointment> appointments = appointmentRepository.getAppointmentsForNurse(username);
         LocalDate currentDate = LocalDate.now();
 
@@ -77,12 +77,12 @@ public class AppointmentService {
         return appointmentRepository.getAppointmentsForNurse(username);
     }
 
-    // Цаг товлох
+    /** Цаг товлох */
     public boolean scheduleAppointment(Appointment appointment) {
         return appointmentRepository.addAppointment(appointment);
     }
 
-    // Цаг цуцлах
+    /** Цаг цуцлах */
     public boolean cancelAppointment(int appointmentId) {
         // Retrieve the appointment from the repository
         Appointment appointment = appointmentRepository.findById(appointmentId);
@@ -95,7 +95,7 @@ public class AppointmentService {
         return false;
     }
 
-    // Цаг үзсэн төлөвт шилжүүлэх
+    /** Цаг үзсэн төлөвт шилжүүлэх */
     public boolean doneAppointment(int appointmentId) {
         Appointment appointment = appointmentRepository.findById(appointmentId);
 
@@ -108,12 +108,12 @@ public class AppointmentService {
         return false;
     }
 
-    // Цаг устгах
+    /** Цаг устгах */
     public boolean deleteAppointment(int appointmentId) {
         return appointmentRepository.deleteAppointment(appointmentId);
     }
 
-    // Цаг хойшлуулах
+    /** Цаг хойшлуулах */
     public boolean rescheduleAppointment(int appointmentId, LocalDateTime date) {
 
 

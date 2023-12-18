@@ -5,7 +5,8 @@ import com.example.time_registration.model.entities.Appointment;
 import java.time.LocalDateTime;
 import java.util.List;
 
-// Цаг товлох ДАО
+
+/** Цаг товлох ДАО*/
 public interface AppointmentDao {
     boolean addAppointment(Appointment appointment); // Цаг нэмэх
 

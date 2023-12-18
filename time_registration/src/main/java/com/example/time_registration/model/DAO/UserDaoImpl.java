@@ -16,7 +16,7 @@ public class UserDaoImpl implements UserDAO {
         }
     }
 
-    // Singleton
+    /** Singleton */
     public static UserDaoImpl getInstance() throws SQLException {
         if (instance == null) {
             instance = new UserDaoImpl();
