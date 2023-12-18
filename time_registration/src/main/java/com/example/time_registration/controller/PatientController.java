@@ -36,7 +36,7 @@ public class PatientController {
         this.appointmentService = appointmentService;
     }
 
-    // Сэшнд хадгалагдсан хэрэглэгчийг авч буцаана.
+/** Сэшнд хадгалагдсан хэрэглэгчийг авч буцаана.*/
     private User getCurrentPatient(HttpServletRequest request) {
         HttpSession session = request.getSession();
         User currentPatient = (User) session.getAttribute("user");
@@ -50,7 +50,7 @@ public class PatientController {
         return currentPatient;
     }
 
-    // Цагуудын жагсаалтыг дуудаж шинэчилнэ.
+/** Цагуудын жагсаалтыг дуудаж шинэчилнэ.*/
     private void updateAppointments(Model model) {
         if (currentPatient != null) {
             List<Appointment> appointments = appointmentService.getAppointmentsByUsername(currentPatient.getUsername());
@@ -66,13 +66,12 @@ public class PatientController {
         }
     }
 
-    // Хэрэглэгчийн гэр хуудсыг буцаана. Сэшнд хадгалагдаагүй хэрэглэгч байвал логик хуудасруу буцаана.
+/** Хэрэглэгчийн гэр хуудсыг буцаана. Сэшнд хадгалагдаагүй хэрэглэгч байвал логик хуудасруу буцаана.*/
     @GetMapping("/patient_home")
     public String showPatientHome(HttpServletRequest request, Model model) {
         currentPatient = getCurrentPatient(request);
         if (currentPatient != null) {
             model.addAttribute("user", currentPatient);
-//            updateWaitingAppointments(model);
             updateAppointments(model);
 
             return "patient_home";
@@ -81,7 +80,7 @@ public class PatientController {
         }
     }
 
-    // Цаг авах логик
+/** Цаг авах логик */
     @PostMapping("/add")
     public String addTransaction(@ModelAttribute("appointment")AppointmentDto appointmentDto, BindingResult bindingResult, HttpSession session, Model model) {
         if (bindingResult.hasErrors()) {
@@ -89,18 +88,18 @@ public class PatientController {
             return "patient_home";
         }
 
-        // Товлосон цагыг тохирох форматтад оруулах хэрэгтэй
+        /** Товлосон цагыг тохирох форматтад оруулах хэрэгтэй */
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(appointmentDto.getDate(), formatter);
         LoggerFactory.getLogger(RegisterController.class).info("add result: {}", dateTime);
 
-        // Ямар төрлийн цаг авч байгаагаас хамаарч төрлийг нь тохируулна
+        /** Ямар төрлийн цаг авч байгаагаас хамаарч төрлийг нь тохируулна */
         Appointment appointment = new Appointment(dateTime, currentPatient, AppointmentType.EXAMINATION);
         if (appointmentDto.getType().equals("treatment")) {
             appointment.setType(AppointmentType.TREATMENT);
         }
 
-        // Хэрвээ сервис цаг авч чадахгүй false утга буцаавал алдааны мессеж явуулна.
+        /** Хэрвээ сервис цаг авч чадахгүй false утга буцаавал алдааны мессеж явуулна. */
         if (!appointmentService.scheduleAppointment(appointment)) {
             model.addAttribute("errorMessage", "Цаг авахад алдаа гарлаа");
             return "patient_home";
@@ -108,13 +107,13 @@ public class PatientController {
 
 //        updateWaitingAppointments(model);
         updateAppointments(model);
-        // Амжилттай цаг авсан мессеж буцаана.
+        /** Амжилттай цаг авсан мессеж буцаана. */
         model.addAttribute("successMessage", "Амжилттай цаг авлаа");
 
         return "patient_home";
     }
 
-    // Хэрэглэгч цаг цуцлах логик.
+/** Хэрэглэгч цаг цуцлах логик. */
     @PostMapping("/cancel")
     public ResponseEntity<String> cancelAppointment(@RequestParam("appointmentId") int appointmentId) {
         boolean success = appointmentService.cancelAppointment(appointmentId);
@@ -126,7 +125,7 @@ public class PatientController {
         }
     }
 
-    // Хэрэглэгч цагаа хойшлуулах логик
+/** Хэрэглэгч цагаа хойшлуулах логик */
     @PostMapping("/reschedule")
     public ResponseEntity<String> rescheduleAppointment(@RequestParam("appointmentId") int appointmentId, @RequestParam("newDateTime") String newDateTime) {
 
@@ -141,7 +140,7 @@ public class PatientController {
         }
     }
 
-    // Хэрэглэгч гарах логик
+/** Хэрэглэгч гарах логик */
     @GetMapping("/patient/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
 
