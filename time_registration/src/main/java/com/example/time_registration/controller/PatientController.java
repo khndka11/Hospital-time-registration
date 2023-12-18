@@ -25,7 +25,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-// Энгийн хэрэглэгчийн контроллер
+/**Энгийн хэрэглэгчийн контроллер*/
 @Controller
 public class PatientController {
     private final AppointmentService appointmentService; // Цагийн сервис
