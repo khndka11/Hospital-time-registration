@@ -1,6 +1,6 @@
 package com.example.time_registration.model.enums;
 
-// Цагийн төрөл
+/** Цагийн төрөл */
 public enum AppointmentType {
     EXAMINATION,
     TREATMENT,

@@ -6,8 +6,7 @@ import com.example.time_registration.model.entities.Person;
 import com.example.time_registration.model.entities.User;
 import com.example.time_registration.model.enums.UserType;
 
-// Хэрэглэгчийн фактори метод
-// Хэрэглэгчийн фактори метод
+/** Хэрэглэгчийн фактори метод */
 public class UserFactory {
     public static Person createUser(Person person, UserType type) {
         switch (type) {

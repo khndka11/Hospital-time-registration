@@ -1,6 +1,6 @@
 package com.example.time_registration.model.enums;
 
-// Эмчилгээний төрөл
+/** Эмчилгээний төрөл */
 public enum TreatmentType {
     REHAB,
     DRUGS,

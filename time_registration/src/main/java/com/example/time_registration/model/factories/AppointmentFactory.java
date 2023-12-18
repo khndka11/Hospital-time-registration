@@ -8,7 +8,7 @@ import com.example.time_registration.model.enums.AppointmentType;
 
 import java.time.LocalDateTime;
 
-// Цагын фактори метод
+/** Цагын фактори метод */
 public class AppointmentFactory {
     public static Appointment createAppointment(User user, LocalDateTime date, AppointmentType type) {
         Appointment appointment = null;

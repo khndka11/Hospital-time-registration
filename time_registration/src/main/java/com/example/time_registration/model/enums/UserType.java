@@ -1,6 +1,6 @@
 package com.example.time_registration.model.enums;
 
-// Хэрэглэгчийн төрөл
+/** Хэрэглэгчийн төрөл */
 public enum UserType {
     DOCTOR,
     NURSE,
