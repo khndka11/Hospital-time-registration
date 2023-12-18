@@ -4,7 +4,7 @@ import com.example.time_registration.model.enums.UserType;
 
 import java.io.Serializable;
 
-// Хүн bean
+/** Хүн bean */
 public class Person implements Serializable {
     private String name;
     private String username;

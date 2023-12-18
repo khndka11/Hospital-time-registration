@@ -1,6 +1,6 @@
 package com.example.time_registration.model.DTO;
 
-// Data Transfer Object
+/** Data Transfer Object */
 public class UserLoginDto {
     private String username;
     private String password;

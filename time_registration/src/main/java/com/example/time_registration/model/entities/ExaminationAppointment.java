@@ -4,7 +4,7 @@ import com.example.time_registration.model.enums.ExaminationType;
 
 import java.time.LocalDateTime;
 
-// Үзлэгийн цаг
+/** Үзлэгийн цаг */
 public class ExaminationAppointment extends Appointment {
 
     private ExaminationType examinationType;

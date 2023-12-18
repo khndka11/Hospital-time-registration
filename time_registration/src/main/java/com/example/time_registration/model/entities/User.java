@@ -2,7 +2,7 @@ package com.example.time_registration.model.entities;
 
 import com.example.time_registration.model.enums.UserType;
 
-// Энгийн хэрэглэгч
+/** Энгийн хэрэглэгч */
 public class User extends Person {
     private Appointment appointment;
 

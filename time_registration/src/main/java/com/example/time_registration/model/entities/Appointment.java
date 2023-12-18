@@ -10,7 +10,7 @@ import com.example.time_registration.model.statuses.WaitingStatus;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-// Цаг bean
+/** Цаг bean */
 public class Appointment implements Serializable {
     private int id;
     private LocalDateTime time;

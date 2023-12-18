@@ -5,7 +5,7 @@ import com.example.time_registration.model.enums.UserType;
 import java.util.ArrayList;
 import java.util.List;
 
-// Сувилагч
+/** Сувилагч */
 public class Nurse extends Person {
     private List<Appointment> appointments;
 

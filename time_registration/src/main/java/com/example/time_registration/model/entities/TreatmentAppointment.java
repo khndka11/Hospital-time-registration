@@ -4,7 +4,7 @@ import com.example.time_registration.model.enums.TreatmentType;
 
 import java.time.LocalDateTime;
 
-// Эмчилгээний цаг
+/** Эмчилгээний цаг */
 public class TreatmentAppointment extends Appointment {
 
     private TreatmentType treatmentType;
