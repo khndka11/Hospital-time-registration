@@ -28,7 +28,7 @@ public class RegisterController {
     }
 
 
-/** Пост байдлаар хэрэглэгчийн бүртгэл орж ирж амжилтай бүртгэвэл (өгөгдлийн санд хадгална) логин хуудасруу буцна.*/
+    /** Пост байдлаар хэрэглэгчийн бүртгэл орж ирж амжилтай бүртгэвэл (өгөгдлийн санд хадгална) логин хуудасруу буцна.*/
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("user") UserRegisterDto user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
@@ -45,7 +45,7 @@ public class RegisterController {
             return "redirect:/login";
         } else {
 
-/** Алдаа гарвал */
+    /** Алдаа гарвал */
             model.addAttribute("errorMessage", "Ийм нэвтрэх нэртэй хэрэглэгч байна");
             return "register";
         }

@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-// Нэвтрэх контроллер
+
+/** Нэвтрэх контроллер */
 @Controller
 public class LoginController {
 
@@ -32,7 +33,8 @@ public class LoginController {
         return "login";
     }
 
-    // Пост үйлдлээр хэрэглэгч нэвтрэхэд шаардлагатай шалгалтыг явуулж нэвтрүүлнэ. Мөн сэшнд хэрэглэгчийн мэдээллийг хадгална.
+
+    /** Пост үйлдлээр хэрэглэгч нэвтрэхэд шаардлагатай шалгалтыг явуулж нэвтрүүлнэ. Мөн сэшнд хэрэглэгчийн мэдээллийг хадгална. */
     @PostMapping("/login")
     public String verifyLogin(@ModelAttribute("user") UserLoginDto user, BindingResult bindingResult, HttpSession session, Model model) {
 
@@ -40,11 +42,13 @@ public class LoginController {
             return "login";
         }
 
-        // Хэрэглэгчийг сервис ашиглан нэвтрэх логикийг гүйцэтгэнэ
+
+    /** Хэрэглэгчийг сервис ашиглан нэвтрэх логикийг гүйцэтгэнэ */
         Person authResult = authenticationService.authenticate(user);
         LoggerFactory.getLogger(RegisterController.class).info("Login result: {}", authResult + " : " + session);
 
-        // Амжилттай нэвтэрвэл хэрэглэгчээс хамаараад тохирсон хуудсыг буцаах ба сэшнд хэрэглэгчийг хадгална.
+
+        /** Амжилттай нэвтэрвэл хэрэглэгчээс хамаараад тохирсон хуудсыг буцаах ба сэшнд хэрэглэгчийг хадгална. */
         if (authResult != null) {
             String userRole = authResult.getRole();
             switch (userRole) {
@@ -64,7 +68,8 @@ public class LoginController {
             }
         }
 
-        // Энэд хүрвэл алдаа гарсан гэж үзнэ.
+
+        /** Энэд хүрвэл алдаа гарсан гэж үзнэ. */
         model.addAttribute("errorMessage", "Нэвтрэх нэр эсвэл нууц үг буруу");
         return "login";
     }

@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-// Сувилагчийг хариуцсан контроллер
+
+/** Сувилагчийг хариуцсан контроллер */
 @Controller
 public class NurseController {
     private Nurse currentNurse = null;
@@ -30,7 +31,8 @@ public class NurseController {
         this.appointmentService = appointmentService;
     }
 
-    // Сэшнд хадгалагдсан хэрэглэгчийг авна. Хэрвээ байхгүй бол нүлл буцаана.
+
+    /** Сэшнд хадгалагдсан хэрэглэгчийг авна. Хэрвээ байхгүй бол нүлл буцаана. */
     private Nurse getCurrentNurse(HttpServletRequest request) {
         HttpSession session = request.getSession();
         Nurse currentNurse = (Nurse) session.getAttribute("user");
@@ -44,7 +46,8 @@ public class NurseController {
         return currentNurse;
     }
 
-    // Цагуудыг өгөгдлийн сангаас дуудаж шинэчилнэ. Хүлээгдэж буй цагууд болон бусад цагуудыг ялгана
+
+    /** Цагуудыг өгөгдлийн сангаас дуудаж шинэчилнэ. Хүлээгдэж буй цагууд болон бусад цагуудыг ялгана */
     private void updateAppointments(Model model) {
         if (currentNurse != null) {
             List<Appointment> appointments = appointmentService.getAppointmentsForNurse(currentNurse.getUsername());
@@ -60,7 +63,8 @@ public class NurseController {
         }
     }
 
-    // Сувилагчийн гэр хуудсыг буцаах ба эхлээд сэшнд хадгалагдсан хэрэглэгчийг олж цагуудаа дуудаж шинэчилнэ.
+
+/** Сувилагчийн гэр хуудсыг буцаах ба эхлээд сэшнд хадгалагдсан хэрэглэгчийг олж цагуудаа дуудаж шинэчилнэ. */
     @GetMapping("/nurse_home")
     public String showNurseHome(HttpServletRequest request, Model model) {
         currentNurse = getCurrentNurse(request);
@@ -74,7 +78,8 @@ public class NurseController {
         }
     }
 
-    // Сувилагч цагыг үзсэн гэж тэмдэглэх логик
+
+    /** Сувилагч цагыг үзсэн гэж тэмдэглэх логик */
     @PostMapping("/nurse/done")
     public ResponseEntity<String> doneAppointment(@RequestParam("appointmentId") int appointmentId) {
         boolean success = appointmentService.doneAppointment(appointmentId);
@@ -86,7 +91,8 @@ public class NurseController {
         }
     }
 
-    // Сувилагч цагийг устгах логик
+
+    /** Сувилагч цагийг устгах логик */
     @PostMapping("/nurse/delete")
     public ResponseEntity<String> deleteAppointment(@RequestParam("appointmentId") int appointmentId) {
         boolean success = appointmentService.deleteAppointment(appointmentId);
@@ -98,7 +104,8 @@ public class NurseController {
         }
     }
 
-    // Сувилагч цагийг цуцлах логик
+
+    /** Сувилагч цагийг цуцлах логик */
     @PostMapping("/nurse/cancel")
     public ResponseEntity<String> cancelAppointment(@RequestParam("appointmentId") int appointmentId) {
         boolean success = appointmentService.cancelAppointment(appointmentId);
@@ -110,7 +117,8 @@ public class NurseController {
         }
     }
 
-    // Гарах логик
+
+    /** Гарах логик */
     @GetMapping("/nurse/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
 
