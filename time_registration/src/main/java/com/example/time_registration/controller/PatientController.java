@@ -113,7 +113,7 @@ public class PatientController {
         return "patient_home";
     }
 
-/** Хэрэглэгч цаг цуцлах логик. */
+    /** Хэрэглэгч цаг цуцлах логик. */
     @PostMapping("/cancel")
     public ResponseEntity<String> cancelAppointment(@RequestParam("appointmentId") int appointmentId) {
         boolean success = appointmentService.cancelAppointment(appointmentId);
@@ -125,7 +125,7 @@ public class PatientController {
         }
     }
 
-/** Хэрэглэгч цагаа хойшлуулах логик */
+    /** Хэрэглэгч цагаа хойшлуулах логик */
     @PostMapping("/reschedule")
     public ResponseEntity<String> rescheduleAppointment(@RequestParam("appointmentId") int appointmentId, @RequestParam("newDateTime") String newDateTime) {
 
@@ -140,7 +140,7 @@ public class PatientController {
         }
     }
 
-/** Хэрэглэгч гарах логик */
+    /** Хэрэглэгч гарах логик */
     @GetMapping("/patient/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
 
