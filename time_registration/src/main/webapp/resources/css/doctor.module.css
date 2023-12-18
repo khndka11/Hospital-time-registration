@@ -1,0 +1,318 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,400";
+html {
+    width: 100%;
+    height: 100%;
+}
+body h1 {
+    text-align: start;
+    color:  #428bff;
+    border-left: 8px solid #2540b0;
+    font-weight: 700;
+    margin: 0;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+#logout {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+}
+
+.tabs {
+    box-sizing: border-box;
+    background: white;
+    padding: 50px;
+    padding-bottom: 80px;
+    width: 100%;
+    height: 250px;
+    border-radius: 5px;
+    min-width: 270px;
+}
+.tabs input[name="tab-control"] {
+    display: none;
+}
+.tabs .content section h2,
+.tabs ul li label {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 18px;
+    color: #428bff;
+}
+.tabs ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.tabs ul li {
+    box-sizing: border-box;
+    flex: 1;
+    width: 30%;
+    padding: 0 10px;
+    text-align: center;
+}
+.tabs ul li label {
+    transition: all 0.3s ease-in-out;
+    color: #929daf;
+    padding: 5px auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+}
+.tabs ul li label br {
+    display: none;
+}
+.tabs ul li label svg {
+    fill: #929daf;
+    height: 1.2em;
+    vertical-align: bottom;
+    margin-right: 0.2em;
+    transition: all 0.2s ease-in-out;
+}
+.tabs ul li label:hover,
+.tabs ul li label:focus,
+.tabs ul li label:active {
+    outline: 0;
+    color: #bec5cf;
+}
+.tabs ul li label:hover svg,
+.tabs ul li label:focus svg,
+.tabs ul li label:active svg {
+    fill: #bec5cf;
+}
+.tabs .slider {
+    position: relative;
+    width: 25%;
+    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+}
+.tabs .slider .indicator {
+    position: relative;
+    width: 50px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 4px;
+    background: #428bff;
+    border-radius: 1px;
+}
+.tabs .content {
+    margin-top: 30px;
+}
+.tabs .content section {
+    display: none;
+    animation-name: content;
+    animation-direction: normal;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    line-height: 1.4;
+}
+.tabs .content section h2 {
+    color: #428bff;
+    display: none;
+}
+.tabs .content section h2::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #428bff;
+    margin-top: 5px;
+    left: 1px;
+}
+.tabs
+input[name="tab-control"]:nth-of-type(1):checked
+~ ul
+> li:nth-child(1)
+> label {
+    cursor: default;
+    color: #428bff;
+}
+.tabs
+input[name="tab-control"]:nth-of-type(1):checked
+~ ul
+> li:nth-child(1)
+> label
+svg {
+    fill: #428bff;
+}
+
+.table {
+    border-spacing: 0 15px;
+    border-collapse: separate;
+}
+.table thead tr th,
+.table thead tr td,
+.table tbody tr th,
+.table tbody tr td {
+    vertical-align: middle;
+    border: none;
+}
+.table thead tr th:nth-last-child(1),
+.table thead tr td:nth-last-child(1),
+.table tbody tr th:nth-last-child(1),
+.table tbody tr td:nth-last-child(1) {
+    text-align: center;
+}
+.table tbody tr {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.table tbody tr td {
+    background: #fff;
+}
+.table tbody tr td:nth-child(1) {
+    border-radius: 5px 0 0 5px;
+}
+.table tbody tr td:nth-last-child(1) {
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-done {
+    background-color: #2540b0;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Montserrat;
+}
+
+.btn-hold{
+    background-color: #f0a901;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Montserrat;
+}
+.btn-cancel{
+    background-color: #d82529;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Montserrat;
+}
+button:hover{
+    opacity: 0.7;
+}
+.status-done{
+    background-color: #49af41;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    user-select: none;
+    font-family: Montserrat;
+}
+.status-cancel{
+    background-color: #d82529;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    user-select: none;
+    font-family: Montserrat;
+}
+.status-wait{
+    background-color: #f0a901;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    user-select: none;
+    font-family: Montserrat;
+}
+.status-unknown {
+    background-color: #BBBBBB;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    user-select: none;
+    font-family: Montserrat;
+}
+@media (max-width: 600px) {
+    .tabs
+    input[name="tab-control"]:nth-of-type(1):checked
+    ~ ul
+    > li:nth-child(1)
+    > label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+.tabs input[name="tab-control"]:nth-of-type(1):checked ~ .slider {
+    transform: translateX(0%);
+}
+.tabs
+input[name="tab-control"]:nth-of-type(1):checked
+~ .content
+> section:nth-child(1) {
+    display: block;
+}
+.tabs
+input[name="tab-control"]:nth-of-type(2):checked
+~ ul
+> li:nth-child(2)
+> label {
+    cursor: default;
+    color: #428bff;
+}
+.tabs
+input[name="tab-control"]:nth-of-type(2):checked
+~ ul
+> li:nth-child(2)
+> label
+svg {
+    fill: #428bff;
+}
+.btn-add{
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #2540b0;
+    background-color: #2540b0;
+    color: white;
+}
+@media (max-width: 600px) {
+    .tabs
+    input[name="tab-control"]:nth-of-type(2):checked
+    ~ ul
+    > li:nth-child(2)
+    > label {
+        background: rgba(0, 0, 0, 0.08);
+    }
+}
+.tabs input[name="tab-control"]:nth-of-type(2):checked ~ .slider {
+    transform: translateX(100%);
+}
+.tabs
+input[name="tab-control"]:nth-of-type(2):checked
+~ .content
+> section:nth-child(2) {
+    display: block;
+}
+
+
+
+
